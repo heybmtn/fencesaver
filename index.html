@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   FENCE-SAVER - Storm Protection for Your Fence
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   /* [Previous styles remain unchanged] */
+:root {
+--primary-color: #1e3a8a;
+--primary-light: #3b82f6;
+--secondary-color: #34d399;
+--text-dark: #1f2937;
+--text-light: #6b7280;
+--background: #f8fafc;
+--white: #ffffff;
+--max-width: 1200px;
+--border-radius: 12px;
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+line-height: 1.6;
+color: var(--text-dark);
+background: linear-gradient(to bottom, var(--background), #e0f2fe);
+min-height: 100vh;
+}
+h1, h2, h3 {
+font-weight: 700;
+line-height: 1.2;
+margin-bottom: 1rem;
+}
+h1 {
+font-size: clamp(2rem, 5vw, 3.5rem);
+color: var(--primary-color);
+}
+h2 {
+font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+.container {
+max-width: var(--max-width);
+margin: 0 auto;
+padding: 0 1.5rem;
+}
+.navbar {
+background-color: var(--primary-color);
+padding: 1rem 0;
+position: fixed;
+width: 100%;
+top: 0;
+z-index: 1000;
+box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+.nav-content {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.nav-brand {
+color: var(--white);
+font-size: 1.5rem;
+font-weight: 700;
+text-decoration: none;
+}
+.nav-links {
+display: none;
+}
+@media (min-width: 768px) {
+.nav-links {
+display: flex;
+gap: 2rem;
+}
+.nav-links a {
+color: var(--white);
+text-decoration: none;
+transition: color 0.3s ease;
+}
+.nav-links a:hover {
+color: var(--primary-light);
+}
+}
+.hero {
+padding-top: 6rem;
+text-align: center;
+margin-bottom: 4rem;
+}
+.hero-image-container {
+position: relative;
+margin: 2rem 0;
+border-radius: var(--border-radius);
+overflow: hidden;
+}
+.hero-image {
+width: 100%;
+height: auto;
+object-fit: cover;
+border-radius: var(--border-radius);
+}
+.hero-overlay {
+position: absolute;
+inset: 0;
+background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
+}
+.card {
+background: var(--white);
+border-radius: var(--border-radius);
+padding: 2rem;
+box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+margin-bottom: 2rem;
+transition: transform 0.3s ease;
+}
+.card:hover {
+transform: translateY(-5px);
+}
+.features-grid {
+display: grid;
+gap: 2rem;
+margin: 2rem 0;
+}
+@media (min-width: 768px) {
+.features-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+.feature-item {
+display: flex;
+align-items: flex-start;
+gap: 1rem;
+padding: 1rem;
+background-color: #f8fafc;
+border-radius: var(--border-radius);
+}
+.form-group {
+margin-bottom: 1.5rem;
+}
+.form-label {
+display: block;
+margin-bottom: 0.5rem;
+color: var(--text-dark);
+font-weight: 500;
+}
+.form-input {
+width: 100%;
+padding: 0.75rem 1rem;
+border: 1px solid #e5e7eb;
+border-radius: var(--border-radius);
+transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.form-input:focus {
+outline: none;
+border-color: var(--primary-light);
+box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+.submit-button {
+width: 100%;
+padding: 1rem 2rem;
+background-color: var(--primary-color);
+color: var(--white);
+border: none;
+border-radius: var(--border-radius);
+font-weight: 600;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.submit-button:hover {
+background-color: var(--primary-light);
+transform: translateY(-2px);
+}
+.pricing-card {
+background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+color: var(--white);
+padding: 2rem;
+border-radius: var(--border-radius);
+text-align: center;
+margin-bottom: 2rem;
+}
+.price {
+font-size: 3rem;
+font-weight: 700;
+margin: 1rem 0;
+}
+.pricing-benefits {
+max-width: 400px;
+margin: 0 auto;
+text-align: left;
+padding: 1rem;
+background: rgba(255, 255, 255, 0.1);
+border-radius: var(--border-radius);
+}
+.pricing-benefits p {
+font-size: 1.1rem;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+.footer {
+background-color: var(--primary-color);
+color: var(--white);
+padding: 2rem 0;
+margin-top: 4rem;
+text-align: center;
+}
+.contact-direct {
+margin-top: 2rem;
+padding-top: 2rem;
+border-top: 1px solid #e5e7eb;
+}
+.contact-direct a {
+color: var(--primary-color);
+text-decoration: none;
+margin-left: 0.5rem;
+}
+.contact-methods {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 0.5rem;
+}
+.contact-methods p {
+display: flex;
+align-items: center;
+font-size: 1.3rem;
+}
+.discount-info {
+background: rgba(255, 255, 255, 0.15);
+padding: 1rem;
+border-radius: var(--border-radius);
+margin: 1rem auto;
+max-width: 400px;
+}
+.discount-info p {
+color: var(--white);
+font-size: 1.2rem;
+margin-bottom: 0.5rem;
+}
+.text-center { text-align: center; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-8 { margin-bottom: 2rem; }
+.text-red-500 { color: #ef4444; }
+.text-green-500 { color: #10b981; }
+.feature-image {
+width: 100%;
+height: auto;
+border-radius: var(--border-radius);
+margin-bottom: 1rem;
+}
+  </style>
+ </head>
+ <body>
+  <nav class="navbar">
+   <div class="container nav-content">
+    <a class="nav-brand" href="#">
+     FENCE-SAVER™
+    </a>
+    <div class="nav-links">
+     <a href="#features">
+      Features
+     </a>
+     <a href="#testimonials">
+      Testimonials
+     </a>
+     <a href="#contact">
+      Contact
+     </a>
+    </div>
+   </div>
+  </nav>
+  <div class="container">
+   <header class="hero">
+    <h1>
+     Stop Losing Fence Panels to Storm Damage!
+    </h1>
+    <div class="hero-image-container">
+     <img alt="Fence-Saver product showcase" class="hero-image" src="images/fencesaver1.png"/>
+     <div class="hero-overlay">
+     </div>
+    </div>
+    <p>
+     Introducing FENCE-SAVER™ - The Breakthrough Solution That Keeps Your Fence Panels
+Secure Even in the Fiercest Storms
+    </p>
+   </header>
+   <section class="card">
+    <h2>
+     Are you tired of:
+    </h2>
+    <div class="features-grid">
+     <div class="feature-item">
+      <span class="text-red-500">
+       ✗
+      </span>
+      <p>
+       Finding your fence panels scattered across your garden after every storm?
+      </p>
+     </div>
+     <div class="feature-item">
+      <span class="text-red-500">
+       ✗
+      </span>
+      <p>
+       Worrying about your children and pets' safety when fence panels fail?
+      </p>
+     </div>
+     <div class="feature-item">
+      <span class="text-red-500">
+       ✗
+      </span>
+      <p>
+       Spending hundreds of pounds on repeated fence repairs?
+      </p>
+     </div>
+     <div class="feature-item">
+      <span class="text-red-500">
+       ✗
+      </span>
+      <p>
+       Dealing with rotting bottom rails that need constant replacement?
+      </p>
+     </div>
+    </div>
+   </section>
+   <section class="card" id="features">
+    <h2 class="text-center">
+     The Simple Innovation That's Changing Fence Security
+    </h2>
+    <div class="features-grid">
+     <div>
+      <img alt="Fence-Saver installation demo" class="feature-image" src="images/fencesaver2.png"/>
+      <div class="feature-item">
+       <span class="text-green-500">
+        ✓
+       </span>
+       <p>
+        Securely locks your fence panels in place
+       </p>
+      </div>
+      <div class="feature-item">
+       <span class="text-green-500">
+        ✓
+       </span>
+       <p>
+        Creates an air gap that prevents rot-causing moisture damage
+       </p>
+      </div>
+     </div>
+     <div>
+      <img alt="Fence-Saver benefits" class="feature-image" src="images/fencesaver3.png"/>
+      <div class="feature-item">
+       <span class="text-green-500">
+        ✓
+       </span>
+       <p>
+        Works with both concrete and wooden posts/gravel boards
+       </p>
+      </div>
+      <div class="feature-item">
+       <span class="text-green-500">
+        ✓
+       </span>
+       <p>
+        Requires just 2 brackets per panel for complete security
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="card" id="testimonials">
+    <h2 class="text-center">
+     PROVEN During the UK's Worst Storms
+    </h2>
+    <blockquote>
+     <i class="fas fa-quote-left fa-2x mb-4">
+     </i>
+     <p class="mb-4">
+      "This will really help us - we are extremely busy at the moment - the UK graces us with fierce storms
+that are not fence friendly - so we're busy making gardens safe and secure again"
+     </p>
+     <footer>
+      - Professional Fence Contractor
+     </footer>
+    </blockquote>
+   </section>
+   <section class="pricing-card">
+    <h2>
+     Your Investment in Protection
+    </h2>
+    <div class="price">
+     £3.90
+    </div>
+    <p class="mb-4">
+     per pair - one pack covers one panel
+    </p>
+    <div class="discount-info">
+     <p class="mb-2">
+      Multiple Order Discounts Available:
+     </p>
+     <p class="mb-2">
+      10+ pairs: 5% off
+     </p>
+     <p class="mb-2">
+      25+ pairs: 10% off
+     </p>
+     <p>
+      Bulk Orders (please contact us for prices)
+     </p>
+    </div>
+    <div class="pricing-benefits">
+     <p class="mb-2">
+      ✓ Save hundreds in future repair costs
+     </p>
+     <p class="mb-2">
+      ✓ Protect your property's security
+     </p>
+     <p class="mb-2">
+      ✓ Keep children and pets safe
+     </p>
+     <p>
+      ✓ Extend your fence's lifespan
+     </p>
+    </div>
+   </section>
+   <section class="card" id="contact">
+    <h2 class="text-center">
+     Order Your FENCE-SAVER Brackets Today
+    </h2>
+    <p class="text-center mb-8">
+     Don't wait for the next storm to damage your fence.
+    </p>
+    <form action="process.php" method="POST">
+     <div class="features-grid">
+      <div class="form-group">
+       <label class="form-label" for="name">
+        Name
+       </label>
+       <input class="form-input" id="name" name="name" required="" type="text"/>
+      </div>
+      <div class="form-group">
+       <label class="form-label" for="email">
+        Email
+       </label>
+       <input class="form-input" id="email" name="email" required="" type="email"/>
+      </div>
+     </div>
+     <div class="form-group">
+      <label class="form-label" for="quantity">
+       Quantity (pairs)
+      </label>
+      <input class="form-input" id="quantity" min="1" name="quantity" required="" type="number"/>
+     </div>
+     <div class="form-group">
+      <label class="form-label" for="message">
+       Message
+      </label>
+      <textarea class="form-input" id="message" name="message" rows="4"></textarea>
+     </div>
+     <button class="submit-button" type="submit">
+      Submit Order Request
+     </button>
+    </form>
+   </section>
+  </div>
+ </body>
+</html>
